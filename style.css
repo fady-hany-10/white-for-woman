@@ -21,6 +21,7 @@ body {
   position: relative;
 }
 
+/* طبقة التعتيم الخلفية */
 body::before {
   content: '';
   position: fixed;
@@ -33,6 +34,7 @@ body::before {
   pointer-events: none !important;
 }
 
+/* الكارت الزجاجي */
 .card-container {
   position: relative;
   z-index: 10;
@@ -77,9 +79,11 @@ body::before {
   width: 100%;
 }
 
-.social-btn {
+/* التنسيق الأساسي للأزرار (زجاجي شفاف) */
+a.social-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   padding: 14px 20px;
@@ -95,6 +99,11 @@ body::before {
   -webkit-tap-highlight-color: transparent;
 }
 
+a.social-btn * {
+  pointer-events: none !important;
+}
+
+/* الأيقونات العادية */
 .social-btn .btn-icon {
   width: 24px !important;
   height: 24px !important;
@@ -102,7 +111,14 @@ body::before {
   object-fit: contain;
   position: absolute;
   left: 18px;
-  pointer-events: none;
+}
+
+/* 1. تكبير لوجو إنستاباي */
+.social-btn.instapay .btn-icon {
+  width: 32px !important;
+  height: auto !important;
+  max-width: 35px !important;
+  left: 16px;
 }
 
 .social-btn .btn-text {
@@ -110,19 +126,51 @@ body::before {
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  pointer-events: none;
 }
 
-.social-btn.instapay {
-  background: linear-gradient(135deg, #6c2bd9, #8b5cf6);
-  border: none;
+/* 2. زر إنستاباي ملون بشكل دائم بالبنفسجي المميز */
+a.social-btn.instapay {
+  background: linear-gradient(135deg, #6c2bd9, #8b5cf6) !important;
+  border: none !important;
   margin-top: 6px;
+  box-shadow: 0 4px 15px rgba(108, 43, 217, 0.4);
 }
 
-.social-btn:active {
+/* 3. ظهور الألوان عند تحريك الماوس (Hover) */
+
+/* Instagram: تدرج إنستجرام الشهير */
+a.social-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Facebook: أزرق فيسبوك الرسمي */
+a.social-btn.facebook:hover {
+  background: #1877f2 !important;
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.35);
+  transform: translateY(-2px);
+}
+
+/* TikTok: أسود تيك توك */
+a.social-btn.tiktok:hover {
+  background: #000000 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* InstaPay: تفاعل إضافي عند الوقوف بالماوس */
+a.social-btn.instapay:hover {
+  background: linear-gradient(135deg, #5b1ebc, #7c4af0) !important;
+  box-shadow: 0 6px 20px rgba(108, 43, 217, 0.65);
+  transform: translateY(-2px);
+}
+
+a.social-btn:active {
   transform: scale(0.98);
 }
 
+/* حقوق Vodoo */
 .developed-by {
   position: relative;
   z-index: 10;
