@@ -1,37 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. تحديث البيانات الأساسية
-  const logoEl = document.getElementById("profile-logo");
-  if (logoEl && storeData.logo) logoEl.src = storeData.logo;
+    if (typeof config === "undefined") return;
 
-  const titleEl = document.getElementById("profile-title");
-  if (titleEl && storeData.title) titleEl.innerText = storeData.title;
+    // تحديث النصوص والصورة
+    const logoEl = document.getElementById("logo");
+    if (logoEl && config.logo) logoEl.src = config.logo;
 
-  const subtitleEl = document.getElementById("profile-subtitle");
-  if (subtitleEl && storeData.subtitle) subtitleEl.innerText = storeData.subtitle;
+    const titleEl = document.getElementById("title");
+    if (titleEl && config.title) titleEl.textContent = config.title;
 
-  // 2. إنشاء الروابط والأزرار الديناميكية
-  const container = document.getElementById("links-container");
-  if (container && storeData.links) {
-    container.innerHTML = "";
-    storeData.links.forEach(link => {
-      const a = document.createElement("a");
-      a.href = link.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.className = `social-btn ${link.platform || ''}`;
+    const subtitleEl = document.getElementById("subtitle");
+    if (subtitleEl && config.subtitle) subtitleEl.textContent = config.subtitle;
 
-      let iconHtml = link.icon 
-        ? `<img src="${link.icon}" class="btn-icon" alt="${link.name}">` 
-        : '';
+    // إنشاء الأزرار والروابط ديناميكياً
+    const container = document.getElementById("links-container");
+    if (container && config.links) {
+        container.innerHTML = "";
+        config.links.forEach(link => {
+            const a = document.createElement("a");
+            a.href = link.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.className = `link-btn ${link.class}`;
 
-      a.innerHTML = `${iconHtml}<span class="btn-text">${link.name}</span>`;
-      container.appendChild(a);
-    });
-  }
+            a.innerHTML = `
+                <i class="${link.icon}"></i>
+                <span class="btn-text">${link.name}</span>
+            `;
 
-  // 3. حقوق شركة Vodoo
-  const devContainer = document.getElementById("developed-by");
-  if (devContainer && storeData.developer) {
-    devContainer.innerHTML = `Powered by <a href="${storeData.developer.url}" target="_blank" rel="noopener noreferrer">${storeData.developer.name}</a>`;
-  }
+            container.appendChild(a);
+        });
+    }
 });
