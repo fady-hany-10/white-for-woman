@@ -1,18 +1,4 @@
-*img {
-  max-width: 100%;
-}
-
-.btn-icon {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  object-fit: contain;
-  position: absolute;
-  left: 18px;
-  pointer-events: none;
-}
-
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,7 +11,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* إضافة رابط الخلفية الذي كان مفقوداً */
   background-image: url('bg.jpg');
   background-color: #121214;
   background-size: cover;
@@ -36,7 +21,6 @@ body {
   position: relative;
 }
 
-/* طبقة تعتيم مع السماح بالضغط من خلالها */
 body::before {
   content: '';
   position: fixed;
@@ -49,7 +33,6 @@ body::before {
   pointer-events: none !important;
 }
 
-/* الكارت الزجاجي */
 .card-container {
   position: relative;
   z-index: 10;
@@ -94,11 +77,9 @@ body::before {
   width: 100%;
 }
 
-/* أزرار الروابط الصريحة للموبايل */
-a.link-btn {
+.social-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
   position: relative;
   width: 100%;
   padding: 14px 20px;
@@ -114,33 +95,34 @@ a.link-btn {
   -webkit-tap-highlight-color: transparent;
 }
 
-a.link-btn .btn-icon {
-  width: 24px;
-  height: 24px;
+.social-btn .btn-icon {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
   object-fit: contain;
   position: absolute;
   left: 18px;
   pointer-events: none;
 }
 
-a.link-btn .btn-text {
+.social-btn .btn-text {
+  width: 100%;
+  text-align: center;
   font-size: 17px;
   font-weight: 600;
   pointer-events: none;
 }
 
-/* زر إنستاباي */
-a.link-btn.instapay {
+.social-btn.instapay {
   background: linear-gradient(135deg, #6c2bd9, #8b5cf6);
   border: none;
   margin-top: 6px;
 }
 
-a.link-btn:active {
+.social-btn:active {
   transform: scale(0.98);
 }
 
-/* حقوق Vodoo */
 .developed-by {
   position: relative;
   z-index: 10;
