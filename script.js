@@ -1,21 +1,35 @@
-window.addEventListener('load', function() {
-    document.getElementById('splash-logo').src = shopData.logo;
-    document.getElementById('splash-name').textContent = shopData.name;
-    document.getElementById('links-logo').src = shopData.logo;
-    document.getElementById('links-name').textContent = shopData.name;
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. تحديث بيانات الملف الشخصي
+  const logoEl = document.getElementById("profile-logo");
+  if (logoEl && storeData.logo) logoEl.src = storeData.logo;
 
-    const linksContainer = document.getElementById('links-container');
-    shopData.links.forEach(function(link) {
-        const a = document.createElement('a');
-        a.href = link.url;
-        a.className = 'btn';
-        a.target = '_blank';
-        a.textContent = link.name;
-        linksContainer.appendChild(a);
+  const titleEl = document.getElementById("profile-title");
+  if (titleEl && storeData.title) titleEl.innerText = storeData.title;
+
+  const subtitleEl = document.getElementById("profile-subtitle");
+  if (subtitleEl && storeData.subtitle) subtitleEl.innerText = storeData.subtitle;
+
+  // 2. إنشاء الأزرار والروابط بشكل مباشر وصريح
+  const container = document.getElementById("links-container");
+  if (container && storeData.links) {
+    container.innerHTML = "";
+    storeData.links.forEach(link => {
+      const a = document.createElement("a");
+      a.href = link.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = `link-btn ${link.type || ''} ${link.platform || ''}`;
+
+      let iconHtml = link.icon ? `<img src="${link.icon}" class="btn-icon" alt="${link.name}">` : '';
+      a.innerHTML = `${iconHtml}<span class="btn-text">${link.name}</span>`;
+
+      container.appendChild(a);
     });
+  }
 
-    setTimeout(function() {
-        document.getElementById('splash').classList.add('hide');
-        document.getElementById('links').classList.add('show');
-    }, 2000);
+  // 3. إضافة حقوق شركة Vodoo
+  const devContainer = document.getElementById("developed-by");
+  if (devContainer && storeData.developer) {
+    devContainer.innerHTML = `Powered by <a href="${storeData.developer.url}" target="_blank" rel="noopener noreferrer">${storeData.developer.name}</a>`;
+  }
 });
