@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,39 +9,17 @@
 <body>
 
   <div class="card-container">
-    <!-- اللوجو -->
-    <img src="logo.png" alt="White Logo" class="profile-logo">
-    
-    <!-- النصوص -->
-    <h2 class="profile-title">White for woman</h2>
-    <p class="profile-subtitle">Welcome to my page 👋</p>
+    <img id="profile-logo" src="logo.png" class="profile-logo" alt="Logo">
+    <h2 id="profile-title" class="profile-title">White for woman</h2>
+    <p id="profile-subtitle" class="profile-subtitle">Welcome to my page 👋</p>
 
-    <!-- الأزرار -->
-    <a href="#" class="social-btn instagram">
-      <img src="instagram.png" alt="Instagram" class="btn-icon">
-      <span class="btn-text">Instagram</span>
-    </a>
-
-    <a href="#" class="social-btn facebook">
-      <img src="facebook.png" alt="Facebook" class="btn-icon">
-      <span class="btn-text">Facebook</span>
-    </a>
-
-    <a href="#" class="social-btn tiktok">
-      <img src="tik tok.png" alt="TikTok" class="btn-icon">
-      <span class="btn-text">TikTok</span>
-    </a>
-
-    <!-- زر InstaPay -->
-    <a href="#" class="instapay-btn">
-      <img src="instapay.png" alt="InstaPay" class="instapay-icon">
-      <span class="instapay-text">InstaPay</span>
-    </a>
+    <!-- هذا هو المكان الذي سيقوم الجافاسكريبت بملء الروابط الحقيقية فيه -->
+    <div id="links-container" class="links-container"></div>
   </div>
 
-<div class="developed-by">
-    Powered by <a href="#" target="_blank">Vodoo</a>
-  </div>
+  <div id="developed-by" class="developed-by"></div>
 
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
