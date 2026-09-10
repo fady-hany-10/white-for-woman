@@ -1,202 +1,116 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url('bg.jpg');
-  background-color: #121214;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding: 20px;
-  position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    padding: 20px;
 }
 
-/* طبقة التعتيم الخلفية */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-  pointer-events: none !important;
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 28px;
+    padding: 35px 25px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* الكارت الزجاجي */
-.card-container {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  max-width: 380px;
-  padding: 32px 24px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
-  color: #ffffff;
+/* تكبير اللوجو الرئيسي */
+.logo-container {
+    margin-bottom: 12px;
 }
 
-.profile-logo {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 12px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+.logo-container img {
+    width: 130px !important;
+    height: 130px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.profile-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 4px;
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
 }
 
-.profile-subtitle {
-  font-size: 14px;
-  opacity: 0.85;
-  margin-bottom: 24px;
+.subtitle {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 25px;
 }
 
 .links-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* التنسيق الأساسي للأزرار (زجاجي شفاف) */
-a.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  padding: 14px 20px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff !important;
-  text-decoration: none !important;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  z-index: 20;
-  -webkit-tap-highlight-color: transparent;
-}
-
-a.social-btn * {
-  pointer-events: none !important;
-}
-
-/* الأيقونات العادية */
-.social-btn .btn-icon {
-  width: 24px !important;
-  height: 24px !important;
-  max-width: 24px !important;
-  object-fit: contain;
-  position: absolute;
-  left: 18px;
-}
-
-/* 1. تكبير لوجو إنستاباي */
-.social-btn.instapay .btn-icon {
-  width: 80px !important;
-  height: 80px !important;
-  max-width: 35px !important;
-  left: 16px;
-}
-
-.social-btn .btn-text {
-  width: 100%;
-  text-align: center;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-/* 2. زر إنستاباي ملون بشكل دائم بالبنفسجي المميز */
-a.social-btn.instapay {
-  background: linear-gradient(135deg, #6c2bd9, #8b5cf6) !important;
-  border: none !important;
-  margin-top: 6px;
-  box-shadow: 0 4px 15px rgba(108, 43, 217, 0.4);
-}
-
-/* 3. ظهور الألوان عند تحريك الماوس (Hover) */
-
-/* Instagram: تدرج إنستجرام الشهير */
-a.social-btn.instagram:hover {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
-  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.35);
-  transform: translateY(-2px);
-}
-
-/* Facebook: أزرق فيسبوك الرسمي */
-a.social-btn.facebook:hover {
-  background: #1877f2 !important;
-  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.35);
-  transform: translateY(-2px);
-}
-
-/* TikTok: أسود تيك توك */
-a.social-btn.tiktok:hover {
-  background: #000000 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
-}
-
-/* InstaPay: تفاعل إضافي عند الوقوف بالماوس */
-a.social-btn.instapay:hover {
-  background: linear-gradient(135deg, #5b1ebc, #7c4af0) !important;
-  box-shadow: 0 6px 20px rgba(108, 43, 217, 0.65);
-  transform: translateY(-2px);
-}
-
-a.social-btn:active {
-  transform: scale(0.98);
-}
-
-/* حقوق Vodoo */
-.developed-by {
-  position: relative;
-  z-index: 10;
-  margin-top: 20px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-}
-
-.developed-by a {
-  color: #ffffff;
-  font-weight: 700;
-  text-decoration: none;
-}
-/* 1. تكبير لوجو/أيقونة InstaPay داخل الزر */
-img[src*="instapay"], 
-a[href*="instapay"] img, 
-a[href*="InstaPay"] img {
-    width: 32px !important;   /* يمكنك زيادة الرقم إذا أردته أكبر */
-    height: 32px !important;
-    object-fit: contain;
-}
-
-/* 2. تلوين زر InstaPay باللون البنفسجي الخاص به */
-a[href*="instapay"], 
-a[href*="InstaPay"] {
-    background-color: #582583 !important; /* لون InstaPay الرسمي */
+.link-btn {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     color: #ffffff !important;
+}
+
+.link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.link-btn i {
+    font-size: 20px;
+    width: 25px;
+    text-align: left;
+}
+
+.btn-text {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* ألوان الأزرار */
+.btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.btn-facebook {
+    background-color: #1877F2;
+}
+
+.btn-tiktok {
+    background-color: #000000;
+}
+
+/* لون زر InstaPay */
+.btn-instapay {
+    background-color: #582583 !important;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
 }
