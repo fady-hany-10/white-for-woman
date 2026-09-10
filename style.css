@@ -115,8 +115,8 @@ a.social-btn * {
 
 /* 1. تكبير لوجو إنستاباي */
 .social-btn.instapay .btn-icon {
-  width: 32px !important;
-  height: auto !important;
+  width: 80px !important;
+  height: 80px !important;
   max-width: 35px !important;
   left: 16px;
 }
