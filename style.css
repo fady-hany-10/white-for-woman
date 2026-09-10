@@ -185,3 +185,18 @@ a.social-btn:active {
   font-weight: 700;
   text-decoration: none;
 }
+/* 1. تكبير لوجو/أيقونة InstaPay داخل الزر */
+img[src*="instapay"], 
+a[href*="instapay"] img, 
+a[href*="InstaPay"] img {
+    width: 32px !important;   /* يمكنك زيادة الرقم إذا أردته أكبر */
+    height: 32px !important;
+    object-fit: contain;
+}
+
+/* 2. تلوين زر InstaPay باللون البنفسجي الخاص به */
+a[href*="instapay"], 
+a[href*="InstaPay"] {
+    background-color: #582583 !important; /* لون InstaPay الرسمي */
+    color: #ffffff !important;
+}
